@@ -8,9 +8,9 @@ public class DeveloperProjectFinder {
         for (Map.Entry<String, Set<String>> e : projects.entrySet()){
         for(Set<String> valueList : projects.values()) {
             for(String value : valueList) {
-                if(value.equals(developer))
+                if(value.equals(developer)){
                     projectsForDeveloper.add(e.getKey());
-            }}}
+            }}}}
         projectsForDeveloper.sort(Comparator.comparingInt(String::length));
         return projectsForDeveloper;
 }}

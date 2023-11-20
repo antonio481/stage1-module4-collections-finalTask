@@ -9,11 +9,13 @@ public class MapFromKeysCreator {
         for (Map.Entry<String, Integer> e : sourceMap.entrySet()){
             keysLength.add(e.getKey().length());
         }
-        ListIterator<Integer> it = keysLength.listIterator(keysLength.size());
-        while(it.hasNext()) {
-            for (Map.Entry<String, Integer> e : sourceMap.entrySet()){
-                if(it.next()==e.getKey().length())
-                    result.put(it.next(), Collections.singleton(e.getKey()));
+
+        for (Integer integer : keysLength) {
+            Set<String> daysOfWeek = new HashSet<>();
+            for (Map.Entry<String, Integer> e : sourceMap.entrySet()) {
+                if (integer == e.getKey().length())
+                    daysOfWeek.add(e.getKey());
+                result.put(integer, daysOfWeek);
             }
         }
         return result;
